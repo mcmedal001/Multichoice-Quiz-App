@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="displayQuestions()">
+    <div class="container">
+        <div class="timer-scorecont">
+            <div id="timer"> Secs</div>
+            <div>Your Score: <span id="score"> 0</span> Points</div>
+        </div>
+        <div class="question-layout">
+            <div class="question">What is 1 + 1?</div> 
+        </div>
+        <div class="answer-layout">
+            <div class="choice" data-option:"a" id="A" onclick="checkAnswer(event, 'A', this.id)">4</div>
+            <div class="choice" data-option:"b" id="B" onclick="checkAnswer(event, 'B', this.id)">3</div>
+            <div class="choice" data-option:"c" id="C" onclick="checkAnswer(event, 'C', this.id)">2</div>
+            <div class="choice" data-option:"d" id="D" onclick="checkAnswer(event, 'D', this.id)">1</div>
+            <div class="answer-popup"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
