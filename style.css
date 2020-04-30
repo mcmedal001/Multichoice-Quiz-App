@@ -40,6 +40,16 @@ body {
     margin-top: 42px;
 }
 
+.home-high-score {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.home-high-score span {
+    color: #009200;
+}
+
 .timer-scorecont {
     display: flex;
     justify-content: space-between;

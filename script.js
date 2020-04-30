@@ -193,12 +193,10 @@ let interval;
         
         
         let closeModal = document.getElementById("close-modal");
-
         function closeModalFn() {
             let finalScoreModal = document.querySelector(".final-score");
                 finalScoreModal.style.display = "none";
         }
-        
         closeModal.addEventListener('click', closeModalFn);
 
         
