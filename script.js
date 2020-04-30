@@ -216,6 +216,8 @@ let interval;
             }
 
         }
+
+        /* More functions */
         
         
        
