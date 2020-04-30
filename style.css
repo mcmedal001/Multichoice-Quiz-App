@@ -25,6 +25,21 @@ body {
     background-color: var(--lightgray);
 }
 
+.home-layout {
+    background-color: var(--blue);
+    padding: 50px 10px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: var(--white);
+}
+
+.answer-layout img {
+    padding: 20px 20px;
+    background-color: var(--blue);
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
 .timer-scorecont {
     display: flex;
     justify-content: space-between;
@@ -60,6 +75,49 @@ body {
     padding: 20px 10px;
 }
 
+
+.final-score {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.76);
+    position: absolute;
+    top: 0;
+    height: 95vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.final-score-content {
+    box-sizing: border-box;
+    height: 400px;
+    background-color: #fff;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.final-score img {
+    padding-bottom: 30px;
+}
+
+.current-score {
+    padding-bottom: 20px;
+}
+
+.high-score {
+    padding-bottom: 20px;
+}
+
+.final-score button {
+    padding: 8px 20px;
+    border: solid 0.5px;
+}
+
 .answer-layout {
     height: calc(100% - 200px);
     display: flex;
@@ -78,6 +136,11 @@ body {
     box-shadow: 1px 2px 5px 2px var(--shadow);
     font-size: 20px;
     color: var(--white);
+}
+
+.choice a {
+    color: var(--white);
+    text-decoration: none;
 }
 
 .processing {
@@ -145,4 +208,10 @@ body {
 
 .choice {
     cursor: pointer;
+}
+
+#close-modal a, #play-again a {
+    text-decoration: none;
+    color: #000000;
+    cursor: default;
 }

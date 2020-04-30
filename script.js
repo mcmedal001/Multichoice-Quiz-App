@@ -67,6 +67,30 @@ let interval;
                 d: "Ajebo",
                 correct: "B"
             },
+            {
+                question: "What is the capital of Brazil?",
+                a: "Buenos Aries",
+                b: "Sao Paolo",
+                c: "Rio de Janeiro",
+                d: "Brasilia",
+                correct: "D"
+            },
+            {
+                question: "What is the capital of Croatia?",
+                a: "Zagreb",
+                b: "Belgrade",
+                c: "Oslo",
+                d: "Helsinki",
+                correct: "A"
+            },
+            {
+                question: "What is the capital of Finland?",
+                a: "London",
+                b: "Helsinki",
+                c: "Quebec",
+                d: "Slovakials",
+                correct: "B"
+            },
         ];
 
         let questions2 = [];
@@ -112,8 +136,7 @@ let interval;
                 answerPopup.classList.add("answer-popup-correct");
                 answerPopup.innerHTML = "Correct";
                 score = score+10;
-                scoreContainer.innerHTML = score;
-                
+                scoreContainer.innerHTML = score;                
             } else {
                 answer.target.classList.add("wrong");
                 answerPopup.classList.remove("answer-popup-right");
@@ -127,21 +150,27 @@ let interval;
             count = 0;
             if(runningQuestion < lastQuestion){
                 runningQuestion++;
-                }
-            
-                if(runningQuestion == lastQuestion) {                   
-                setTimeout(() => {
-                    alert("The End!");
-                }, 16000);
-            }
-                
+                } 
+
             setTimeout(()=>{
                 document.querySelector(".answer-popup").style.display = "none";
                 answer.target.classList.remove("correct");
                 answer.target.classList.remove("wrong");
 
-                this.displayQuestions();
-                this.countdownTimer();
+                if(runningQuestion == lastQuestion) {
+                    let finalScoreModal = document.querySelector(".final-score");
+                    let currentScore = document.querySelector(".current-score span");
+                    finalScoreModal.style.display = "flex";
+                    currentScore.textContent = score;
+                    this.storeHighScore();
+                    clearInterval(interval);
+
+                } else {
+                    this.displayQuestions();
+                    this.countdownTimer();
+                }
+
+
             }, 2500);
                             
         }
@@ -153,11 +182,50 @@ let interval;
                 document.getElementById('timer').innerHTML=count + " secs left";
                 count--;
                 if (count < 0){
-                clearInterval(interval);
-                document.getElementById('timer').innerHTML='Time Up!';
-                alert("You didn't answer on time. Click OK to go to the next question.")
-                this.displayQuestions();
+                    clearInterval(interval);
+                    document.getElementById('timer').innerHTML='Time Up!';
+                    alert("You didn't answer on time. Click OK to go to the next question.");
+                    this.displayQuestions();                  
                 }
             }
             , 1000);
         }
+        
+        
+        let closeModal = document.getElementById("close-modal");
+
+        function closeModalFn() {
+            let finalScoreModal = document.querySelector(".final-score");
+                finalScoreModal.style.display = "none";
+        }
+        
+        closeModal.addEventListener('click', closeModalFn);
+
+        
+        function storeHighScore() {
+            let savedHighScore = localStorage.getItem('highScore');
+
+            if (score > savedHighScore) {
+                localStorage.setItem('highScore', score);
+                let displayedHighScore = document.querySelector(".high-score span");
+                displayedHighScore.textContent = score;
+            } else {
+                localStorage.setItem('highScore', savedHighScore);
+                let displayedHighScore = document.querySelector(".high-score span");
+                displayedHighScore.textContent = savedHighScore;
+            }
+
+        }
+        
+        
+       
+
+        
+
+
+
+        
+
+
+
+         
